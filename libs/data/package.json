@@ -4,9 +4,9 @@
   "private": true,
   "main": "src/index.ts",
   "dependencies": {
-    "@supabase/supabase-js": "workspace:*"
+    "@supabase/supabase-js": "^2.39.0"
   },
   "devDependencies": {
-    "typescript": "workspace:*"
+    "typescript": "^5.2.2"
   }
 }

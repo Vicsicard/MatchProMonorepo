@@ -8,8 +8,8 @@
     "dev": "tailwindcss -i ./src/index.css -o ./dist/index.css --watch"
   },
   "devDependencies": {
-    "tailwindcss": "workspace:*",
-    "postcss": "workspace:*",
-    "autoprefixer": "workspace:*"
+    "tailwindcss": "^3.3.5",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16"
   }
 }
