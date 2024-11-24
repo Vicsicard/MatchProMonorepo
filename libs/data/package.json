@@ -1,20 +1,12 @@
 {
   "name": "@matchpro/data",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
-    "lint": "eslint \"src/**/*.ts*\""
-  },
+  "main": "src/index.ts",
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.0"
+    "@supabase/supabase-js": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "tsup": "^8.0.2"
+    "typescript": "workspace:*"
   }
 }

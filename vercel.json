@@ -1,4 +1,5 @@
 {
+  "name": "matchpro-career-suite",
   "version": 2,
   "buildCommand": "yarn build",
   "outputDirectory": "apps/matchproresumewebsite/dist",
