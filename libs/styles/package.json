@@ -1,0 +1,15 @@
+{
+  "name": "@matchpro/styles",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.css",
+  "scripts": {
+    "build": "tailwindcss -i ./src/index.css -o ./dist/index.css",
+    "dev": "tailwindcss -i ./src/index.css -o ./dist/index.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  }
+}
