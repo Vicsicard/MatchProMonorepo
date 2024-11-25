@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Placeholder = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50 p-4">

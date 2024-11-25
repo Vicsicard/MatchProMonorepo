@@ -1,13 +1,28 @@
 {
-  "name": "matchpro-career-suite",
   "version": 2,
-  "buildCommand": "yarn build",
-  "outputDirectory": "apps/matchproresumewebsite/dist",
+  "buildCommand": "yarn vercel-build",
+  "outputDirectory": "apps/matchproresumewebsite/build",
   "installCommand": "yarn install",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VITE_SUPABASE_URL": "https://iqovlypkybcxowsivguh.supabase.co",
+    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlxb3ZseXBreWJjeG93c2l2Z3VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxMzg4NTcsImV4cCI6MjA0NzcxNDg1N30.nJos_x_qAX3-_n7v2vNMT6kz-NF17m_brVYkDatYoug"
+  },
+  "build": {
+    "env": {
+      "NODE_VERSION": "18.x"
+    }
+  },
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./apps/matchproresumewebsite/",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "development": true
+    }
+  }
 }
