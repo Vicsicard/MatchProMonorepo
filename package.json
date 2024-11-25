@@ -7,14 +7,9 @@
     "libs/*"
   ],
   "scripts": {
-    "dev": "yarn workspace matchproresumewebsite dev",
-    "build": "yarn build:libs && yarn build:apps",
-    "build:apps": "yarn workspace matchproresumewebsite build",
-    "build:libs": "yarn workspace @matchpro/ui build && yarn workspace @matchpro/data build && yarn workspace @matchpro/styles build && yarn workspace @matchpro/config build",
-    "lint": "yarn workspaces run lint",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
     "clean": "rimraf ./apps/*/node_modules ./libs/*/node_modules ./node_modules"
   },
   "dependencies": {
@@ -49,6 +44,7 @@
     "rimraf": "^5.0.5",
     "tailwindcss": "^3.4.0",
     "tsup": "^8.0.1",
+    "turbo": "^1.11.3",
     "typescript": "^5.0.2",
     "vite": "^5.0.8"
   },
