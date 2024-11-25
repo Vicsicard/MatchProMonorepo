@@ -2,7 +2,6 @@
   "version": 2,
   "buildCommand": "yarn build",
   "installCommand": "yarn install",
-  "outputDirectory": ".vercel/output/static",
   "framework": "vite",
   "rewrites": [
     {
@@ -13,5 +12,6 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "outputDirectory": "apps/matchproresumewebsite/dist"
 }

@@ -7,8 +7,8 @@
     "libs/*"
   ],
   "scripts": {
-    "dev": "yarn workspace matchproresumewebsite start",
-    "build": "yarn build:libs && yarn workspace matchproresumewebsite build && yarn workspace app-resume-tailoring build",
+    "dev": "yarn workspace matchproresumewebsite dev",
+    "build": "yarn workspaces run build",
     "build:libs": "yarn workspace @matchpro/ui build && yarn workspace @matchpro/data build && yarn workspace @matchpro/styles build && yarn workspace @matchpro/config build",
     "lint": "yarn workspaces run lint",
     "test": "jest",
