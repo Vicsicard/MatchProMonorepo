@@ -1,20 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '@matchpro/styles/dist/index.css'
+import './App.css'
 import ResumeEditor from './components/ResumeEditor'
+import TestSharedLibs from './components/TestSharedLibs'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4">
-          <h1 className="text-3xl font-bold text-gray-900">
-            MatchPro Resume Builder
-          </h1>
-        </div>
-      </header>
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100">
+      <div className="container mx-auto py-8">
+        <h1 className="text-3xl font-bold mb-8">MatchPro Resume Builder</h1>
+        <TestSharedLibs />
         <ResumeEditor />
-      </main>
+      </div>
     </div>
   )
 }

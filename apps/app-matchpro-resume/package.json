@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@matchpro/ui": "workspace:*",
-    "@matchpro/data": "workspace:*",
-    "@matchpro/styles": "workspace:*",
+    "@matchpro/ui": "*",
+    "@matchpro/data": "*",
+    "@matchpro/styles": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
