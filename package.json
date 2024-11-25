@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "yarn workspace matchproresumewebsite dev",
-    "build": "yarn workspaces run build",
+    "build": "yarn build:libs && yarn build:apps",
+    "build:apps": "yarn workspace matchproresumewebsite build",
     "build:libs": "yarn workspace @matchpro/ui build && yarn workspace @matchpro/data build && yarn workspace @matchpro/styles build && yarn workspace @matchpro/config build",
     "lint": "yarn workspaces run lint",
     "test": "jest",
