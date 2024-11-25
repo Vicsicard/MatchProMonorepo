@@ -1,4 +1,6 @@
 const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 // Get the path that changed
 const changedFiles = process.env.VERCEL_GIT_COMMIT_REF || '';
@@ -21,12 +23,21 @@ try {
   execSync('yarn workspace app-resume-tailoring build', { stdio: 'inherit' });
 
   // Create output directory structure
-  execSync('mkdir -p .vercel/output/static', { stdio: 'inherit' });
+  const outputDir = '.vercel/output/static';
+  fs.mkdirSync(path.join(process.cwd(), outputDir), { recursive: true });
   
-  // Copy build outputs to the correct locations
-  execSync('cp -r apps/matchproresumewebsite/dist/* .vercel/output/static/', { stdio: 'inherit' });
-  execSync('mkdir -p .vercel/output/static/resume-builder', { stdio: 'inherit' });
-  execSync('cp -r apps/app-resume-tailoring/dist/* .vercel/output/static/resume-builder/', { stdio: 'inherit' });
+  // Copy build outputs to the correct locations using cross-platform commands
+  const copyDir = (src, dest) => {
+    fs.cpSync(path.join(process.cwd(), src), path.join(process.cwd(), dest), { recursive: true });
+  };
+
+  copyDir('apps/matchproresumewebsite/dist', outputDir);
+  
+  const resumeBuilderDir = path.join(outputDir, 'resume-builder');
+  fs.mkdirSync(resumeBuilderDir, { recursive: true });
+  copyDir('apps/app-resume-tailoring/dist', resumeBuilderDir);
+
+  console.log('Build completed successfully!');
 } catch (error) {
   console.error('Build failed:', error);
   process.exit(1);
