@@ -5,13 +5,6 @@ const path = require('path');
 console.log('Starting Vercel build process...');
 
 try {
-  // Always build shared libraries first
-  console.log('Building shared libraries...');
-  execSync('yarn workspace @matchpro/ui build', { stdio: 'inherit' });
-  execSync('yarn workspace @matchpro/data build', { stdio: 'inherit' });
-  execSync('yarn workspace @matchpro/styles build', { stdio: 'inherit' });
-  execSync('yarn workspace @matchpro/config build', { stdio: 'inherit' });
-
   // Build the main website
   console.log('Building main website...');
   execSync('yarn workspace matchproresumewebsite build', { stdio: 'inherit' });
@@ -47,19 +40,6 @@ try {
   } else {
     throw new Error('Resume builder build directory not found');
   }
-
-  // Create config file for Vercel
-  fs.writeFileSync(
-    path.join(process.cwd(), '.vercel/output/config.json'),
-    JSON.stringify({
-      version: 3,
-      routes: [
-        { handle: 'filesystem' },
-        { src: '/resume-builder/.*', dest: '/resume-builder/index.html' },
-        { src: '/(.*)', dest: '/index.html' }
-      ]
-    }, null, 2)
-  );
 
   console.log('Build completed successfully!');
 } catch (error) {
