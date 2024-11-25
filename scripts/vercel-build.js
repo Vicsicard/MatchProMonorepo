@@ -15,6 +15,18 @@ try {
   // Build the main website
   console.log('Building main website...');
   execSync('yarn workspace matchproresumewebsite build', { stdio: 'inherit' });
+
+  // Build the resume builder app
+  console.log('Building resume builder app...');
+  execSync('yarn workspace app-resume-tailoring build', { stdio: 'inherit' });
+
+  // Create output directory structure
+  execSync('mkdir -p .vercel/output/static', { stdio: 'inherit' });
+  
+  // Copy build outputs to the correct locations
+  execSync('cp -r apps/matchproresumewebsite/dist/* .vercel/output/static/', { stdio: 'inherit' });
+  execSync('mkdir -p .vercel/output/static/resume-builder', { stdio: 'inherit' });
+  execSync('cp -r apps/app-resume-tailoring/dist/* .vercel/output/static/resume-builder/', { stdio: 'inherit' });
 } catch (error) {
   console.error('Build failed:', error);
   process.exit(1);

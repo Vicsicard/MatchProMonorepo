@@ -1,12 +1,15 @@
 {
   "version": 2,
   "buildCommand": "yarn vercel-build",
-  "outputDirectory": "apps/matchproresumewebsite/build",
   "installCommand": "yarn install",
   "rewrites": [
     {
+      "source": "/resume-builder/(.*)",
+      "destination": "/apps/app-resume-tailoring/$1"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/apps/matchproresumewebsite/$1"
     }
   ],
   "env": {
@@ -18,7 +21,6 @@
       "NODE_VERSION": "18.x"
     }
   },
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./apps/matchproresumewebsite/",
   "git": {
     "deploymentEnabled": {
       "main": true,
