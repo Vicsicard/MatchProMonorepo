@@ -5,11 +5,11 @@
   "rewrites": [
     {
       "source": "/resume-builder/(.*)",
-      "destination": "/apps/app-resume-tailoring/$1"
+      "destination": "/resume-builder/$1"
     },
     {
       "source": "/(.*)",
-      "destination": "/apps/matchproresumewebsite/$1"
+      "destination": "/$1"
     }
   ],
   "env": {
