@@ -1,7 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "yarn vercel-build",
-  "installCommand": "yarn install",
+  "buildCommand": "yarn install && yarn vercel-build",
+  "outputDirectory": ".vercel/output/static",
+  "installCommand": null,
   "rewrites": [
     {
       "source": "/resume-builder/(.*)",
