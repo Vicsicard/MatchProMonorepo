@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "yarn build:libs && yarn vercel-build",
-  "installCommand": "yarn install --frozen-lockfile",
+  "buildCommand": "yarn build",
+  "installCommand": "yarn install",
   "outputDirectory": ".vercel/output/static",
   "framework": "vite",
   "rewrites": [
@@ -13,9 +13,5 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_SUPABASE_URL": "https://iqovlypkybcxowsivguh.supabase.co",
-    "VITE_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlxb3ZseXBreWJjeG93c2l2Z3VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxMzg4NTcsImV4cCI6MjA0NzcxNDg1N30.nJos_x_qAX3-_n7v2vNMT6kz-NF17m_brVYkDatYoug"
-  }
+  ]
 }
