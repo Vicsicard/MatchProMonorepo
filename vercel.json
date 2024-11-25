@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "yarn vercel-build",
-  "installCommand": "yarn install",
+  "buildCommand": "yarn build:libs && yarn vercel-build",
+  "installCommand": "yarn install --frozen-lockfile",
   "outputDirectory": ".vercel/output/static",
   "framework": "vite",
   "rewrites": [
