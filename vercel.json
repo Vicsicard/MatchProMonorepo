@@ -2,12 +2,16 @@
   "version": 2,
   "framework": "vite",
   "installCommand": "yarn install",
-  "buildCommand": "turbo run build --filter=@matchpro/matchproresumewebsite...",
+  "buildCommand": "cd apps/matchproresumewebsite && yarn build",
   "outputDirectory": "apps/matchproresumewebsite/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "build": {
     "env": {
-      "TURBO_TEAM": "vicsicards-projects",
-      "TURBO_TOKEN": "",
       "NODE_OPTIONS": "--max-old-space-size=4096",
       "YARN_ENABLE_IMMUTABLE_INSTALLS": "false",
       "NPM_FLAGS": "--legacy-peer-deps",
