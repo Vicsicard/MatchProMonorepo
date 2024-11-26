@@ -9,9 +9,9 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "postinstall": "yarn install --force --ignore-scripts --production=false",
+    "postinstall": "yarn install --force --ignore-scripts --production=false --network-timeout 300000",
     "lint": "turbo run lint",
-    "clean": "rimraf ./apps/*/node_modules ./libs/*/node_modules ./node_modules ./apps/*/dist ./libs/*/dist",
+    "clean": "rimraf \"./apps/*/node_modules\" \"./libs/*/node_modules\" \"./node_modules\" \"./apps/*/dist\" \"./libs/*/dist\"",
     "prebuild": "yarn clean && yarn install"
   },
   "dependencies": {
