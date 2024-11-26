@@ -13,6 +13,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "!dist/cache/**"]
     },
+    "app-matchpro-resume#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "!dist/cache/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

@@ -2,6 +2,6 @@
   "version": 2,
   "framework": "vite",
   "installCommand": "yarn install",
-  "buildCommand": "cd libs/ui && yarn build && cd ../data && yarn build && cd ../../apps/app-matchpro-resume && yarn build",
+  "buildCommand": "turbo run build --filter=@matchpro/app-matchpro-resume...",
   "outputDirectory": "apps/app-matchpro-resume/dist"
 }
