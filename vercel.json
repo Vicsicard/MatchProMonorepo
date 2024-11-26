@@ -1,8 +1,8 @@
 {
   "version": 2,
   "framework": "vite",
-  "installCommand": "yarn install",
-  "buildCommand": "cd apps/matchproresumewebsite && yarn install && yarn build",
+  "installCommand": "yarn install --production=false --frozen-lockfile",
+  "buildCommand": "cd apps/matchproresumewebsite && yarn build",
   "outputDirectory": "apps/matchproresumewebsite/dist",
   "rewrites": [
     {
@@ -23,7 +23,7 @@
   ],
   "build": {
     "env": {
-      "NODE_OPTIONS": "--max-old-space-size=4096",
+      "NODE_OPTIONS": "--max-old-space-size=3072",
       "YARN_ENABLE_IMMUTABLE_INSTALLS": "false",
       "NPM_FLAGS": "--legacy-peer-deps",
       "VERCEL_ENV": "production",
