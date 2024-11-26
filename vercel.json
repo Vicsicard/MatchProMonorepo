@@ -1,7 +1,15 @@
 {
   "version": 2,
   "framework": "vite",
-  "installCommand": "yarn install",
-  "buildCommand": "cd libs/ui && yarn build && cd ../data && yarn build && cd ../../apps/app-matchpro-resume && yarn build",
-  "outputDirectory": "apps/app-matchpro-resume/dist"
+  "installCommand": "yarn install --frozen-lockfile",
+  "buildCommand": "yarn run build",
+  "outputDirectory": "apps/matchproresumewebsite/dist",
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=4096",
+      "TURBO_TELEMETRY_DISABLED": "1",
+      "YARN_ENABLE_IMMUTABLE_INSTALLS": "false"
+    }
+  },
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet ./apps/matchproresumewebsite"
 }

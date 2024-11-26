@@ -5,16 +5,29 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "matchproresumewebsite#build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "!dist/cache/**"]
+    "@matchpro/ui#build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
     },
-    "app-resume-tailoring#build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "!dist/cache/**"]
+    "@matchpro/data#build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
     },
-    "app-matchpro-resume#build": {
-      "dependsOn": ["^build"],
+    "@matchpro/styles#build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
+    },
+    "@matchpro/config#build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"]
+    },
+    "@matchpro/matchproresumewebsite#build": {
+      "dependsOn": [
+        "@matchpro/ui#build",
+        "@matchpro/data#build",
+        "@matchpro/styles#build",
+        "@matchpro/config#build"
+      ],
       "outputs": ["dist/**", "!dist/cache/**"]
     },
     "dev": {

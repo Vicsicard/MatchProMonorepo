@@ -8,9 +8,11 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "yarn workspaces run build",
+    "build": "turbo run build",
+    "postinstall": "yarn install --force --ignore-scripts --production=false",
     "lint": "turbo run lint",
-    "clean": "rimraf ./apps/*/node_modules ./libs/*/node_modules ./node_modules"
+    "clean": "rimraf ./apps/*/node_modules ./libs/*/node_modules ./node_modules ./apps/*/dist ./libs/*/dist",
+    "prebuild": "yarn clean && yarn install"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
