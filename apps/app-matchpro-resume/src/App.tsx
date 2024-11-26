@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import '@matchpro/styles/dist/index.css'
 import './App.css'
 import ResumeEditor from './components/ResumeEditor'

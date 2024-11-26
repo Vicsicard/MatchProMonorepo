@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "installCommand": "yarn install",
+  "buildCommand": "cd apps/app-matchpro-resume && yarn build",
+  "outputDirectory": "apps/app-matchpro-resume/dist"
+}
