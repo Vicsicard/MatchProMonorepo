@@ -2,7 +2,6 @@
   "version": 2,
   "framework": "vite",
   "installCommand": "yarn install",
-  "buildCommand": "yarn build",
-  "outputDirectory": "apps/app-matchpro-resume/dist",
-  "rootDirectory": "apps/app-matchpro-resume"
+  "buildCommand": "cd libs/ui && yarn build && cd ../data && yarn build && cd ../../apps/app-matchpro-resume && yarn build",
+  "outputDirectory": "apps/app-matchpro-resume/dist"
 }
