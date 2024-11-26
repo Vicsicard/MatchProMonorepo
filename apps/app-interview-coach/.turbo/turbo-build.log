@@ -1,0 +1,4 @@
+$ tsc && vite build
+src/Placeholder.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

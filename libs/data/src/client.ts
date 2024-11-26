@@ -11,11 +11,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
 // Create the Supabase client
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Create a rate-limited API client
-export const rateLimitedApi = createRateLimitedClient(supabaseUrl, {
+// Create a rate-limited API client instance
+export const rateLimitedApi = createRateLimitedClient('https://api.example.com', {
   headers: {
-    'apikey': supabaseAnonKey,
-    'Authorization': `Bearer ${supabaseAnonKey}`,
+    'Content-Type': 'application/json',
   },
   maxRetries: 3,
   baseDelay: 1000,

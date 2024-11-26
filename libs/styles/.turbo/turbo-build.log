@@ -1,0 +1,5 @@
+$ tailwindcss -i ./src/index.css -o ./dist/index.css
+
+Rebuilding...
+
+Done in 2915ms.

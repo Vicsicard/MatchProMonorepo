@@ -1,5 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    ".env"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -28,7 +31,7 @@
         "@matchpro/styles#build",
         "@matchpro/config#build"
       ],
-      "outputs": ["dist/**", "!dist/cache/**"]
+      "outputs": ["dist/**"]
     },
     "dev": {
       "cache": false,
@@ -37,8 +40,5 @@
     "lint": {
       "outputs": []
     }
-  },
-  "globalDependencies": [
-    "tsconfig.json"
-  ]
+  }
 }
