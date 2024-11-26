@@ -2,12 +2,23 @@
   "version": 2,
   "framework": "vite",
   "installCommand": "yarn install",
-  "buildCommand": "cd apps/matchproresumewebsite && yarn build",
+  "buildCommand": "cd apps/matchproresumewebsite && yarn install && yarn build",
   "outputDirectory": "apps/matchproresumewebsite/dist",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ],
   "build": {
