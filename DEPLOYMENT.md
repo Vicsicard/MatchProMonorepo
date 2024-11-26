@@ -142,7 +142,67 @@ The project is set up for continuous deployment:
 
 ## Current Deployment Status
 
-We are experiencing issues deploying the monorepo to Vercel. This document tracks our deployment configuration, issues, and solutions.
+# MatchPro Website Deployment Status
+
+## Current Status
+- 🔄 In Progress: Resolving Vercel deployment issues
+- 🎯 Focus: Platform-specific dependency resolution
+
+## Latest Changes (2024-02-26)
+1. Simplified Dependencies
+   - Reduced to core React requirements
+   - Cleaned up package.json
+   - Generated fresh package-lock.json
+
+2. Build Configuration
+   - Framework: Vite
+   - Build Command: `npm run build`
+   - Install Command: `npm install`
+   - Output Directory: `dist`
+
+3. Current Blockers
+   - Rollup platform-specific dependencies issue
+   - Need to add platform-specific optional dependencies
+
+## Next Steps
+1. Update package.json with platform-specific dependencies:
+   ```json
+   "devDependencies": {
+     "@rollup/rollup-linux-x64-gnu": "4.9.6",
+     "@rollup/rollup-win32-x64-msvc": "4.9.6",
+     "@rollup/rollup-darwin-x64": "4.9.6"
+   }
+   ```
+
+2. Verify NPM Configuration
+   ```
+   legacy-peer-deps=true
+   engine-strict=true
+   auto-install-peers=true
+   shamefully-hoist=true
+   strict-peer-dependencies=false
+   ```
+
+3. Clean Installation Steps
+   - Clean npm cache: `npm cache clean --force`
+   - Remove node_modules
+   - Fresh install: `npm install`
+   - Rebuild: `npm run build`
+
+4. Redeploy to Vercel
+   - Push changes to GitHub
+   - Trigger new Vercel deployment
+   - Monitor build logs
+
+## Repository Information
+- Repository: https://github.com/Vicsicard/matchpro-website
+- Branch: master
+- Latest Commit: Simplifying dependencies and build configuration
+
+## Notes
+- Keeping dependencies minimal to reduce complexity
+- Focusing on cross-platform compatibility
+- Monitoring Vercel build logs for detailed error tracking
 
 ## Environment Requirements
 
