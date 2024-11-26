@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "yarn workspaces run build",
     "lint": "turbo run lint",
     "clean": "rimraf ./apps/*/node_modules ./libs/*/node_modules ./node_modules"
   },
