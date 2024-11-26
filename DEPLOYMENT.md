@@ -139,3 +139,108 @@ The project is set up for continuous deployment:
 - [Vercel Documentation](https://vercel.com/docs)
 - [Vite Documentation](https://vitejs.dev/)
 - [Supabase Documentation](https://supabase.io/docs)
+
+## Current Deployment Status
+
+We are experiencing issues deploying the monorepo to Vercel. This document tracks our deployment configuration, issues, and solutions.
+
+## Environment Requirements
+
+- Node.js: >=18.0.0
+- Yarn: 1.22.x
+- Framework: Vite + React + TypeScript
+- Build Tool: Turborepo
+
+## Configuration Files
+
+### vercel.json
+```json
+{
+  "version": 2,
+  "framework": "vite",
+  "installCommand": "yarn install",
+  "buildCommand": "cd libs/ui && yarn build && cd ../data && yarn build && cd ../../apps/app-matchpro-resume && yarn build",
+  "outputDirectory": "apps/app-matchpro-resume/dist"
+}
+```
+
+### Required Environment Variables
+
+```env
+VITE_SUPABASE_URL=https://iqovlypkybcxowsivguh.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+## Known Issues
+
+1. **Build Failure in Vercel**
+   - Error: `Command 'yarn build' exited with 1`
+   - Possible causes:
+     - Workspace dependency resolution
+     - Environment variable configuration
+     - Build command sequence
+     - Node.js/Yarn version mismatch
+
+2. **Workspace Dependencies**
+   - Local builds succeed
+   - Vercel build fails to resolve workspace packages
+
+## Troubleshooting Steps
+
+1. **Verify Local Build**
+   ```bash
+   # Clean install
+   yarn cache clean
+   yarn install
+
+   # Build workspace packages
+   cd libs/ui && yarn build
+   cd ../data && yarn build
+
+   # Build main app
+   cd ../../apps/app-matchpro-resume
+   yarn build
+   ```
+
+2. **Check Vercel Configuration**
+   - Verify Node.js version in Vercel
+   - Confirm environment variables are set
+   - Review build command output
+
+3. **Test with Vercel CLI**
+   ```bash
+   # Install Vercel CLI
+   npm i -g vercel
+
+   # Login to Vercel
+   vercel login
+
+   # Test deployment locally
+   vercel
+   ```
+
+## Next Steps
+
+1. Obtain complete Vercel build logs
+2. Test deployment with Vercel CLI
+3. Consider alternative deployment strategies:
+   - Simplified build process
+   - Separate package deployments
+   - Different hosting platform
+
+## Resources
+
+- [Vercel Monorepo Documentation](https://vercel.com/docs/monorepos)
+- [Yarn Workspaces Guide](https://classic.yarnpkg.com/en/docs/workspaces/)
+- [Vite Deployment Guide](https://vitejs.dev/guide/static-deploy.html)
+
+## Support
+
+If you encounter issues:
+1. Check the error logs
+2. Review this documentation
+3. Create an issue with:
+   - Complete error message
+   - Steps to reproduce
+   - Vercel build logs
+   - Local environment details
